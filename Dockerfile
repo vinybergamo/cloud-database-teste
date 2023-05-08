@@ -1,6 +1,7 @@
 FROM node:latest
 WORKDIR /app
-ENV DATABASE_URL ${DATABASE_URL}
+ARG DATABASE_URL
+ENV DATABASE_URL=${DATABASE_URL}
 COPY . .
 RUN npm install
 RUN npx prisma generate

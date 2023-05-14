@@ -7,6 +7,10 @@ const app = express();
 
 app.use(json());
 
+app.get("/", async (req, res) => {
+  return res.status(200).json({databse: process.env.DATABASE_URL)}
+})
+
 app.get("/users", async (req, res) => {
   const users = await prisma.user.findMany();
 
